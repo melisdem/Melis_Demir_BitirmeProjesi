@@ -1,0 +1,45 @@
+{% extends "home/base.html" %}
+
+{% block title %} Kayıt Ol {% endblock %}
+
+{% block One %}
+<section id="One" class="wrapper style3">
+    <div class="inner">
+        <header class="align-center">
+            <h2>Kayıt Ol</h2>
+        </header>
+    </div>
+</section>
+{% endblock %}
+
+{% block Two %}
+<section id="two" class="wrapper style2">
+    <div class="inner">
+        <div class="box">
+            <div class="content">
+                <header class="align-center">
+                    <p>Tarifleri kaydetmek, puanlayabilmek ve yorum yapmak için Kayıt olun</p>
+                    <h2>Kayıt Ol</h2>
+                </header>
+                {% if form.errors %}
+                    <p class="button special small fit">Formunuzda bir hata oldu, lütfen tekrar deneyiniz</p>
+                {% endif %}
+                <form method="post" action="{% url 'register' %}">
+                    {% csrf_token %}
+
+                    <div class="row uniform">
+                        {{ form.as_p }}
+                        <!-- Break -->
+                        <div class="12u$">
+                            <ul class="actions">
+                                <li><input type="submit" value="Kayıt Ol" class="button special"/></li>
+                                <li><input type="reset" value="Reset" class="alt"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

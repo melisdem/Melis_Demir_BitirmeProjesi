@@ -1,0 +1,182 @@
+<!-- burada daha önce flask projemizde yaptığımız gibi, django ile oluşturduğumuz base.html dosyasını çağırıyoruz -->
+{% extends "home/base.html" %}
+
+<!--static dosyalarımızı çağıracağımız yerler olduğu için onu da yüklüyoruz-->
+{% load static %}
+
+{% block header %}
+    <header id="header" class="alt" >
+        <div class="logo"><a href="{% url 'home' %}">Mutfağım</a></div>
+        <a href="#menu">Menu</a>
+    </header>
+{% endblock %}
+
+{% block banner %}
+
+<!-- Banner -->
+<section class="banner full">
+    <article>
+        <img src="{% static 'home/images/dinner1.jpg' %}" alt=""/>
+        <div class="inner">
+            <header>
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p>Bugün ne pişirsem?</p>
+                {% endif %}
+                <h2>Mutfağım</h2>
+            </header>
+        </div>
+    </article>
+    <article>
+        <img src="{% static 'home/images/dinner2.jpg' %}" alt=""/>
+        <div class="inner">
+            <header>
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p>Bugün ne pişirsem?</p>
+                {% endif %}
+                <h2>Mutfağım</h2>
+            </header>
+        </div>
+    </article>
+    <article>
+        <img src="{% static 'home/images/dinner3.jpg' %}" alt=""/>
+        <div class="inner">
+            <header>
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% else %}
+                    <p>Bugün ne pişirsem?</p>
+                {% endif %}
+                <h2>Mutfağım</h2>
+            </header>
+        </div>
+    </article>
+</section>
+
+{% endblock %}
+
+
+{% block One %}
+<!-- One -->
+<section id="one" class="wrapper style2">
+    <div class="inner">
+        <div class="grid-style">
+
+            <div>
+                <div class="box">
+                    <div class="image fit">
+                        <img class="image fit" src="{% static 'home/images/mercimek.jpg' %}" alt=""/>
+                    </div>
+                    <div class="content">
+                        <header class="align-center">
+                            <p>Popüler Tarifler</p>
+                            <h2>Mercimek Çorbası</h2>
+                        </header>
+                        <p> Yaz kış demeden her mevsim, her zaman, her durumda elimizin gittiği tariftir mercimek çorbası tarifi. En çok sevilen çorbalardan biridir o! Bu yüzden zamansız çorbadır. </p>
+                        <footer class="align-center">
+                            <a href="{% url 'mercimek' %}" class="button alt">Tarife Git</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="box">
+                    <div class="image fit">
+                        <img class="image fit" src="{% static 'home/images/pizza.jpg' %}" alt=""/>
+                    </div>
+                    <div class="content">
+                        <header class="align-center">
+                            <p>Popüler Tarifler</p>
+                            <h2>Pizza</h2>
+                        </header>
+                        <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet
+                            tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus,
+                            quis volutpat lacus placerat malesuada.</p>
+                        <footer class="align-center">
+                            <a href="{% url 'pizza' %}" class="button alt">Tarife Git</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+{% block Two %}
+<!-- Two -->
+<section id="two" class="wrapper style3">
+    <div class="inner">
+        <header class="align-center">
+            <h2>Mutfağım</h2>
+        </header>
+    </div>
+</section>
+
+{% endblock %}
+
+
+{% block Three %}
+<!-- Three -->
+<section id="one" class="wrapper style2">
+    <div class="inner">
+        <div class="grid-style">
+            <div>
+                <div class="box">
+                    <div class="image fit">
+                        <img class="image fit" src="{% static 'home/images/dolma.jpg' %}" alt=""/>
+                    </div>
+                    <div class="content">
+                        <header class="align-center">
+                            <p>Popüler Tarifler</p>
+                            <h2>Dolma</h2>
+                        </header>
+                        <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet
+                            tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus,
+                            quis volutpat lacus placerat malesuada.</p>
+                        <footer class="align-center">
+                            <a href="{% url 'dolma' %}" class="button alt">Tarife Git</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                <div class="box">
+                    <div class="image fit">
+                        <img class="image fit" src="{% static 'home/images/sekerpare.jpeg' %}" alt=""/>
+                    </div>
+                    <div class="content">
+                        <header class="align-center">
+                            <p>Popüler Tarifler</p>
+                            <h2>Şekerpare</h2>
+                        </header>
+                        <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet
+                            tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus,
+                            quis volutpat lacus placerat malesuada.</p>
+                        <footer class="align-center">
+                            <a href="{% url 'sekerpare' %}" class="button alt">Tarife Git</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock %}

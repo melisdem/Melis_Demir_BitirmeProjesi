@@ -1,0 +1,51 @@
+{% extends "home/base.html" %}
+
+{% block title %} Giriş Yap {% endblock %}
+
+{% block One %}
+<section id="One" class="wrapper style3">
+    <div class="inner">
+        <header class="align-center">
+            <h2>GİRİŞ YAP</h2>
+        </header>
+    </div>
+</section>
+{% endblock %}
+
+{% block Two %}
+<section id="two" class="wrapper style2">
+    <div class="inner">
+        <div class="box">
+            <div class="content">
+                <header class="align-center">
+                    <p>Tarifleri kaydetmek, puanlayabilmek ve yorum yapmak için Giriş Yapın</p>
+                    <h2>Giriş Yap</h2>
+                </header>
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    {% if error %}
+                        <p class="button special small fit"">{{ error }}</p>
+                    {% endif %}
+                    <div class="row uniform">
+                        <div class="6u 12u$(xsmall)">
+                            <label for="username"><b>Kullanıcı İsmi</b></label>
+                            <input type="text" name="username" id="username" value="" placeholder="İsim"/>
+                        </div>
+                        <div class="6u$ 12u$(xsmall)">
+                            <label for="password"><b>Parola</b></label>
+                            <input type="password" id="password" placeholder="Parolanızı girin" name="password" required>
+                        </div>
+                        <!-- Break -->
+                        <div class="12u$">
+                            <ul class="actions">
+                                <li><input type="submit" value="Giriş Yap" class="button special"/></li>
+                                <li><input type="reset" value="Reset" class="alt"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

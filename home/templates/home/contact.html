@@ -1,0 +1,60 @@
+{% extends "home/base.html" %}
+
+<!--{% load static %}-->
+
+{% block title %} İletişim {% endblock %}
+
+{% block One %}
+<section id="One" class="wrapper style3">
+    <div class="inner">
+        <header class="align-center">
+            <h2>İLETİŞİM</h2>
+        </header>
+    </div>
+</section>
+{% endblock %}
+
+{% block Two %}
+
+<!--bu formu templateden aldık direk-->
+<!--method ve action'larını düzelttim-->
+<section id="two" class="wrapper style2">
+    <div class="inner">
+        <div class="box">
+            <div class="content">
+                <header class="align-center">
+                    <p>Bize Ulaşın</p>
+                    <h2>İletişim</h2>
+                </header>
+
+                {% if reply %}
+                    <p>{{ reply }}</p>
+                {% endif %}
+                <form method="post" action="/contact/">
+                        {% csrf_token %} <!--django bu kodu yazmamızı istiyor, bir tür güvenlik kontrolü anladığım kadarıyla -->
+                    <div class="row uniform">
+                        <div class="6u 12u$(xsmall)">
+                            {{ form.name }}       <!--bu değişken django'nun template language'ından form'name attribute'unu html'e çevirip burada eşleştirme yapacak-->
+<!--                            <input type="text" name="name" id="name" value="" placeholder="İsim"/>   gerek yok artık çünkü forms dosyasıyla kendi oluşturacak-->
+                        </div>
+                        <div class="6u$ 12u$(xsmall)">
+                            {{ form.email }}
+                        </div>
+                        <div class="12u$">
+                            {{ form.message }}
+                        </div>
+                        <!-- Break -->
+                        <div class="12u$">
+                            <ul class="actions">
+                                <li><input type="submit" value="Gönder"/></li>
+                                <li><input type="reset" value="Reset" class="alt"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
